@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl6kx2v8meotl"]
+
+[ext_resource type="PackedScene" uid="uid://pkjgwfcx7x34" path="res://class/Building.tscn" id="2_7bi7w"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_upfmh"]
+size = Vector2(10, 10)
+
+[node name="game" type="Node3D"]
+
+[node name="Building" parent="." instance=ExtResource("2_7bi7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Building2" parent="." instance=ExtResource("2_7bi7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
+
+[node name="Building3" parent="." instance=ExtResource("2_7bi7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Building4" parent="." instance=ExtResource("2_7bi7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="Building5" parent="." instance=ExtResource("2_7bi7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_upfmh")
