@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqiad0it050ig" path="res://building/lab/lab.tscn" id="2_402yj"]
 [ext_resource type="Script" path="res://mouse_controller.gd" id="2_bju7i"]
 [ext_resource type="Script" path="res://camera.gd" id="5_tx2k5"]
+[ext_resource type="PackedScene" uid="uid://osbqr5m0upwv" path="res://platform.tscn" id="6_1w6rt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwqot"]
 albedo_color = Color(1, 0, 0, 1)
@@ -20,9 +21,6 @@ sky_material = SubResource("ProceduralSkyMaterial_qrnaa")
 [sub_resource type="Environment" id="Environment_0836c"]
 background_mode = 2
 sky = SubResource("Sky_vey25")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_upfmh"]
-size = Vector2(10, 10)
 
 [node name="game" type="Node3D"]
 script = ExtResource("1_1f3l0")
@@ -53,6 +51,5 @@ environment = SubResource("Environment_0836c")
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.672354, 0.74023, 0, -0.74023, 0.672354, 0, 8.77538, 0)
 
-[node name="plane" type="MeshInstance3D" parent="."]
+[node name="platform" parent="." instance=ExtResource("6_1w6rt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("PlaneMesh_upfmh")

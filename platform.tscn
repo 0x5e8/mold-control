@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://osbqr5m0upwv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o22q2"]
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lhiwt"]
+
+[node name="platform" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_o22q2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("WorldBoundaryShape3D_lhiwt")
