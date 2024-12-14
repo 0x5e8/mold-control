@@ -14,3 +14,7 @@ config/name="mold-control"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/resizable=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl6kx2v8meotl"]
+[gd_scene load_steps=13 format=3 uid="uid://bl6kx2v8meotl"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_1f3l0"]
 [ext_resource type="PackedScene" uid="uid://pkjgwfcx7x34" path="res://class/Building.tscn" id="2_7bi7w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://mouse_controller.gd" id="2_bju7i"]
 [ext_resource type="Script" path="res://camera.gd" id="5_tx2k5"]
 [ext_resource type="PackedScene" uid="uid://osbqr5m0upwv" path="res://platform.tscn" id="6_1w6rt"]
+[ext_resource type="PackedScene" uid="uid://bngy16rweaggf" path="res://gridline.tscn" id="7_0tg6w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwqot"]
 albedo_color = Color(1, 0, 0, 1)
@@ -52,4 +53,7 @@ environment = SubResource("Environment_0836c")
 transform = Transform3D(1, 0, 0, 0, 0.672354, 0.74023, 0, -0.74023, 0.672354, 0, 8.77538, 0)
 
 [node name="platform" parent="." instance=ExtResource("6_1w6rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="gridline" parent="." instance=ExtResource("7_0tg6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

@@ -1,6 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://osbqr5m0upwv"]
+[gd_scene load_steps=5 format=3 uid="uid://osbqr5m0upwv"]
+
+[ext_resource type="Texture2D" uid="uid://bd8i17pkc1hf3" path="res://addons/kenney_prototype_textures/dark/texture_13.png" id="1_k5wet"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im20u"]
+albedo_texture = ExtResource("1_k5wet")
+uv1_scale = Vector3(100, 100, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o22q2"]
+material = SubResource("StandardMaterial3D_im20u")
 size = Vector2(100, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lhiwt"]

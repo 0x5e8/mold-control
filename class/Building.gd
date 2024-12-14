@@ -29,9 +29,6 @@ func update_collision_shape():
 	if not self.name:
 		return
 	
-	if not $collision_shape:
-		return
-	
 	if not $collision_shape.shape or not $collision_shape.shape is BoxShape3D:
 		$collision_shape.shape = BoxShape3D.new()
 	

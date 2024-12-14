@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bngy16rweaggf"]
+
+[ext_resource type="Shader" path="res://grid.gdshader" id="1_e5hn3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gs8w0"]
+render_priority = 0
+shader = ExtResource("1_e5hn3")
+shader_parameter/grid_size = 1.0
+shader_parameter/line_thickness = 0.115
+shader_parameter/origin_offset = Vector2(0, 0)
+shader_parameter/color = Color(0, 0.3, 0, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o22q2"]
+material = SubResource("ShaderMaterial_gs8w0")
+size = Vector2(100, 100)
+
+[node name="gridline" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_o22q2")
