@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl6kx2v8meotl"]
+[gd_scene load_steps=11 format=3 uid="uid://bl6kx2v8meotl"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_nnyns"]
 [ext_resource type="PackedScene" uid="uid://pkjgwfcx7x34" path="res://class/Building.tscn" id="2_7bi7w"]
 [ext_resource type="PackedScene" uid="uid://cqiad0it050ig" path="res://building/lab/lab.tscn" id="2_402yj"]
 [ext_resource type="Script" path="res://mouse_controller.gd" id="2_bju7i"]
@@ -19,7 +18,6 @@ background_mode = 2
 sky = SubResource("Sky_vey25")
 
 [node name="game" type="Node3D"]
-script = ExtResource("1_nnyns")
 
 [node name="mouse-controller" type="Node" parent="."]
 script = ExtResource("2_bju7i")
@@ -37,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
 
 [node name="camera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.566406, 0.0932937, -0.818829, 0, 0.993572, 0.113203, 0.824126, -0.064119, 0.562765, -9.18591, 2.21914, 5.63261)
+transform = Transform3D(0.566406, 0.281868, -0.774425, 0, 0.939693, 0.34202, 0.824126, -0.193722, 0.532248, -13.656, 11.504, 13.133)
 script = ExtResource("5_tx2k5")
 
 [node name="environment" type="WorldEnvironment" parent="."]
