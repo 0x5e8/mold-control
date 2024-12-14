@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://pccr0bcja5s0"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_vf45b"]
+
+[node name="camera" type="Camera3D"]
+script = ExtResource("1_vf45b")
+
+[node name="ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
+debug_shape_thickness = 1

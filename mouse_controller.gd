@@ -1,7 +1,13 @@
 extends Node
 
-var draggable = false
+var draggable: bool = false
 @onready var target_pos: Vector3 = %camera.global_position
+
+func reset_target_pos():
+	target_pos = %camera.global_position
+
+func _ready() -> void:
+	%camera.camera_stopped.connect(reset_target_pos)
 
 func _physics_process(delta: float) -> void:
 	%camera.global_position = lerp(%camera.global_position, target_pos, 1 - pow(0.1, delta * 5.0))

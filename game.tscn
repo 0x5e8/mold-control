@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqiad0it050ig" path="res://building/lab/lab.tscn" id="2_402yj"]
 [ext_resource type="Script" path="res://mouse_controller.gd" id="2_bju7i"]
 [ext_resource type="Script" path="res://game_controller.gd" id="3_ex5qy"]
-[ext_resource type="Script" path="res://camera.gd" id="5_tx2k5"]
+[ext_resource type="PackedScene" uid="uid://pccr0bcja5s0" path="res://camera.tscn" id="5_5dh7y"]
 [ext_resource type="PackedScene" uid="uid://osbqr5m0upwv" path="res://platform.tscn" id="6_1w6rt"]
 [ext_resource type="PackedScene" uid="uid://bngy16rweaggf" path="res://gridline.tscn" id="7_0tg6w"]
 
@@ -33,10 +33,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
 [node name="Building" parent="buildings" instance=ExtResource("2_7bi7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
 
-[node name="camera" type="Camera3D" parent="."]
+[node name="camera" parent="." instance=ExtResource("5_5dh7y")]
 unique_name_in_owner = true
-transform = Transform3D(0.566406, 0.281868, -0.774425, 0, 0.939693, 0.34202, 0.824126, -0.193722, 0.532248, -13.656, 11.504, 13.133)
-script = ExtResource("5_tx2k5")
+transform = Transform3D(0.707107, 0.206738, -0.67621, 0, 0.956305, 0.292372, 0.707107, -0.206738, 0.67621, -9.645, 8.575, 8.482)
 
 [node name="environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0836c")

@@ -1,6 +1,14 @@
 extends Camera3D
 
+signal camera_stopped
+
 @export var mouse_cast_range: float = 100
+
+var squared_min_distance: float = 25.0
+@export var min_distance: float = 5.0:
+	set(val):
+		min_distance = val
+		squared_min_distance = val * val
 
 func mouse_cast() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -11,3 +19,14 @@ func mouse_cast() -> Dictionary:
 	ray_query.collide_with_areas = true
 	
 	return get_world_3d().direct_space_state.intersect_ray(ray_query)
+
+var last_collision_point: Vector3
+func _physics_process(delta: float) -> void:
+	var p = $ray.get_collision_point()
+	if p != last_collision_point:
+		var dirvec: Vector3 = p - self.global_position
+		if dirvec.length_squared() < squared_min_distance:
+			#get back
+			self.global_position += -dirvec.normalized() * (min_distance - dirvec.length())
+			camera_stopped.emit()
+	last_collision_point = p
