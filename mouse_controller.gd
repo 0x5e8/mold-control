@@ -1,13 +1,10 @@
 extends Node
 
 var draggable = false
-var target_pos: Vector3
-
-func _ready() -> void:
-	target_pos = %camera.global_position
+@onready var target_pos: Vector3 = %camera.global_position
 
 func _physics_process(delta: float) -> void:
-	%camera.global_position = lerp(%camera.global_position, target_pos, 0.4)
+	%camera.global_position = lerp(%camera.global_position, target_pos, 1 - pow(0.1, delta * 5.0))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
