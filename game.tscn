@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl6kx2v8meotl"]
+[gd_scene load_steps=7 format=3 uid="uid://bl6kx2v8meotl"]
 
 [ext_resource type="PackedScene" uid="uid://pkjgwfcx7x34" path="res://class/Building.tscn" id="2_7bi7w"]
+[ext_resource type="Script" path="res://mouse_controller.gd" id="2_bju7i"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_upfmh"]
 size = Vector2(10, 10)
@@ -29,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
 
 [node name="Building5" parent="." instance=ExtResource("2_7bi7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -37,10 +38,13 @@ mesh = SubResource("PlaneMesh_upfmh")
 
 [node name="camera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.513541, 0.185719, -0.837725, 0, 0.976296, 0.21644, 0.858065, -0.111151, 0.501368, -4.709, 2.04, 4.273)
+transform = Transform3D(0.513541, 0.163726, -0.8423, 0, 0.981627, 0.190809, 0.858065, -0.0979883, 0.504106, -4.709, 2.065, 4.273)
 
 [node name="environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0836c")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.672354, 0.74023, 0, -0.74023, 0.672354, 0, 8.77538, 0)
+
+[node name="mouse-controller" type="Node" parent="."]
+script = ExtResource("2_bju7i")
