@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqiad0it050ig"]
+
+[ext_resource type="Script" path="res://class/Building.gd" id="1_hyoe4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8ovc"]
+size = Vector3(4, 3, 3)
+
+[node name="lab" type="StaticBody3D"]
+script = ExtResource("1_hyoe4")
+building_type = 1
+dimension = Vector3i(4, 3, 3)
+
+[node name="collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1.5)
+shape = SubResource("BoxShape3D_b8ovc")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.5)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGCombiner3D2"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(4, 3, 3)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55915, 1.08474, 1.3641)
+operation = 2
+radius = 1.864
+height = 1.99217
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609597, 2.70273, -0.111396)
+radius = 1.2
