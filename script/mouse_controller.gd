@@ -1,8 +1,6 @@
 extends Node
 
 var draggable: bool = false
-var scrollable: bool = true
-var scroll_count_lim: int = 10
 @onready var target_pos: Vector3 = %camera.global_position
 
 func reset_target_pos():
