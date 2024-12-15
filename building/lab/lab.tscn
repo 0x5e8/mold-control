@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://class/Building.gd" id="1_hyoe4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8ys3"]
+size = Vector3(4, 3, 3)
 
 [node name="lab" type="Area3D" node_paths=PackedStringArray("geometry")]
 script = ExtResource("1_hyoe4")
+dimension = Vector3i(4, 3, 3)
 geometry = NodePath("CSGCombiner3D2")
 
 [node name="collision_shape" type="CollisionShape3D" parent="."]

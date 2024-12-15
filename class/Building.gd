@@ -79,6 +79,7 @@ func snap_to_grid() -> void:
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		snap_to_grid()
+		update_collision_shape()
 		
 		editor_errors[MISSING_COLLISION_SHAPE] = not $collision_shape or not $collision_shape is CollisionShape3D
 		update_configuration_warnings()
