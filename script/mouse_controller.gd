@@ -15,15 +15,14 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_MIDDLE:
+		if event.button_index == MOUSE_BUTTON_LEFT:
 			draggable = event.pressed
 		
 	if event is InputEventMouseMotion and draggable:
 		var mouse_dir = event.relative.normalized() / 2.0
 		target_pos -= (%camera.global_basis.x * mouse_dir.x) - (%camera.basis.y * mouse_dir.y)
-		
-	if event is InputEventMouseButton and event.pressed:
-		
+	
+	if event is InputEventMouseButton and event.pressed and Globals.current_mode != Globals.Mode.PLACING:
 		match event.button_index:
 			MOUSE_BUTTON_WHEEL_DOWN:
 		
