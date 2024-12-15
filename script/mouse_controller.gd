@@ -29,8 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			MOUSE_BUTTON_WHEEL_UP:
 				target_pos -= %camera.global_basis.z * 2
 #desperation
-func boxed_clamp(u: Vector3, v_m: Vector3, offset: float = 0) -> Vector3:
-	u.x = clamp(u.x, v_m.x - offset, v_m.x + offset)
-	u.y = clamp(u.y, v_m.y - offset, v_m.y + offset)
-	u.z = clamp(u.z, v_m.z - offset, v_m.z + offset)
+func boxed_clamp(u: Vector3, box_center: Vector3, offset: float = 0) -> Vector3:
+	u.x = clamp(u.x, box_center.x - offset, box_center.x + offset)
+	u.y = clamp(u.y, box_center.y - offset, box_center.y + offset)
+	u.z = clamp(u.z, box_center.z - offset, box_center.z + offset)
 	return Vector3(u.x, u.y, u.z)
