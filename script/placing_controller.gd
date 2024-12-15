@@ -5,7 +5,7 @@ extends Node
 var placing_building: Building = null
 var placable: bool
 
-var lab: Resource = preload("res://class/Building.tscn")
+var lab: Resource = preload("res://building/lab/lab.tscn")
 
 func _input(event: InputEvent) -> void:
 	if Globals.current_mode != Globals.Mode.PLACING:
@@ -38,3 +38,11 @@ func _input(event: InputEvent) -> void:
 			print("building placed at", placing_building.position)
 			placing_building.disable_preview_mode()
 			placing_building = null
+	
+	if event is InputEventMouseButton and placing_building and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_WHEEL_DOWN:
+				placing_building.rotation.y += PI/2
+			MOUSE_BUTTON_WHEEL_UP:
+				placing_building.rotation.y -= PI/2
+		placing_building.snap_to_grid()

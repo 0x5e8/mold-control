@@ -34,6 +34,9 @@ func disable_preview_mode():
 func enable_preview_mode():
 	assert(geometry, "an geometry instance must be given")
 	
+	if not geometry.material_override:
+		geometry.material_override = StandardMaterial3D.new()
+	
 	geometry.material_override.transparency = BaseMaterial3D.Transparency.TRANSPARENCY_ALPHA
 	geometry.material_override.albedo_color.a = 0.1
 	
