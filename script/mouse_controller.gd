@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	%camera.global_position = lerp(%camera.global_position, target_pos, 1 - pow(0.1, delta * 5.0))
-	target_pos = vpclamp(target_pos, %platform.position, %platform.position, Globals.camera_limit_xyz_cubed)
+	target_pos = boxed_clamp(target_pos,%platform.position, Globals.camera_limit_xyz_cubed)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -29,8 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			MOUSE_BUTTON_WHEEL_UP:
 				target_pos -= %camera.global_basis.z * 2
 #desperation
-func vpclamp(v: Vector3,v_min: Vector3,v_max: Vector3, offset: float = 0) -> Vector3:
-	v.x = clamp(v.x, v_min.x - offset, v_max.x + offset)
-	v.y = clamp(v.y, v_min.y - offset, v_max.y + offset)
-	v.z = clamp(v.z, v_min.z - offset, v_max.z + offset)
-	return Vector3(v.x, v.y, v.z)
+func boxed_clamp(u: Vector3, v_m: Vector3, offset: float = 0) -> Vector3:
+	u.x = clamp(u.x, v_m.x - offset, v_m.x + offset)
+	u.y = clamp(u.y, v_m.y - offset, v_m.y + offset)
+	u.z = clamp(u.z, v_m.z - offset, v_m.z + offset)
+	return Vector3(u.x, u.y, u.z)
