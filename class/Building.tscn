@@ -5,15 +5,16 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0vm16"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llctn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rod1"]
+transparency = 1
 albedo_texture = ExtResource("2_ppk7l")
-uv1_scale = Vector3(3, 2, 0)
+uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a58sf"]
-material = SubResource("StandardMaterial3D_llctn")
 
-[node name="Building" type="StaticBody3D"]
+[node name="Building" type="StaticBody3D" node_paths=PackedStringArray("geometry")]
 script = ExtResource("1_cij5h")
+geometry = NodePath("MeshInstance3D")
 
 [node name="collision_shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
@@ -21,4 +22,5 @@ shape = SubResource("BoxShape3D_0vm16")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+material_override = SubResource("StandardMaterial3D_2rod1")
 mesh = SubResource("BoxMesh_a58sf")

@@ -12,6 +12,7 @@ enum BuildingType {
 	set(val):
 		dimension = val
 		update_collision_shape()
+@export var geometry: GeometryInstance3D
 
 enum {
 	MISSING_COLLISION_SHAPE
@@ -20,14 +21,25 @@ var editor_errors = {
 	MISSING_COLLISION_SHAPE: false
 }
 
+func set_opacity(alpha):
+	if not self.name: return
+	
+	print(self.name)
+	assert(geometry, "an geometry instance must be given")
+	if not geometry.material_override:
+		geometry.material_override = StandardMaterial3D.new()
+	assert(geometry.material_override is StandardMaterial3D, "material is not a StandardMaterial3D")
+	
+	geometry.material_override.transparency = BaseMaterial3D.Transparency.TRANSPARENCY_ALPHA
+	geometry.material_override.albedo_color.a = alpha
+
 func _ready() -> void:
 	self.scale = Vector3(1, 1, 1)
 	update_collision_shape()
 
 func update_collision_shape():
 	# avoid running this function as a class (idk what to call it)
-	if not self.name:
-		return
+	if not self.name: return
 	
 	if not $collision_shape.shape or not $collision_shape.shape is BoxShape3D:
 		$collision_shape.shape = BoxShape3D.new()
