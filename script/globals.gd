@@ -17,7 +17,6 @@ var current_mode: Mode:
 		if current_mode != val:
 			current_mode = val
 			current_mode_changed.emit(val)
-
 signal current_building_changed
 var current_building: Building:
 	set(val):
