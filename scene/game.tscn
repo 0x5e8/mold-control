@@ -49,6 +49,7 @@ environment = SubResource("Environment_0836c")
 transform = Transform3D(1, 0, 0, 0, 0.672354, 0.74023, 0, -0.74023, 0.672354, 0, 8.77538, 0)
 
 [node name="platform" parent="." instance=ExtResource("6_1w6rt")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="gridline" parent="." instance=ExtResource("7_0tg6w")]
