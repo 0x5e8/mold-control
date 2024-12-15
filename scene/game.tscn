@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl6kx2v8meotl"]
+[gd_scene load_steps=12 format=3 uid="uid://bl6kx2v8meotl"]
 
 [ext_resource type="PackedScene" uid="uid://pkjgwfcx7x34" path="res://class/Building.tscn" id="2_7bi7w"]
 [ext_resource type="PackedScene" uid="uid://cqiad0it050ig" path="res://building/lab/lab.tscn" id="2_402yj"]
 [ext_resource type="Script" path="res://script/mouse_controller.gd" id="2_bju7i"]
 [ext_resource type="Script" path="res://script/game_controller.gd" id="3_ex5qy"]
+[ext_resource type="Script" path="res://script/placing_controller.gd" id="3_vx3tn"]
 [ext_resource type="PackedScene" uid="uid://pccr0bcja5s0" path="res://scene/camera.tscn" id="5_5dh7y"]
 [ext_resource type="PackedScene" uid="uid://osbqr5m0upwv" path="res://scene/platform.tscn" id="6_1w6rt"]
 [ext_resource type="PackedScene" uid="uid://bngy16rweaggf" path="res://scene/gridline.tscn" id="7_0tg6w"]
@@ -24,6 +25,10 @@ script = ExtResource("2_bju7i")
 
 [node name="game-controller" type="Node" parent="."]
 script = ExtResource("3_ex5qy")
+
+[node name="placing-controller" type="Node" parent="." node_paths=PackedStringArray("building_container")]
+script = ExtResource("3_vx3tn")
+building_container = NodePath("../buildings")
 
 [node name="buildings" type="Node" parent="."]
 
