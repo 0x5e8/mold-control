@@ -10,7 +10,7 @@ var mode_name = {
 	Mode.PLACING: "placing",
 	Mode.SELECTING: "selecting",
 }
-var camera_limit_xyz_cubed = 50
+
 signal current_mode_changed
 var current_mode: Mode:
 	set(val):
