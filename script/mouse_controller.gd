@@ -25,11 +25,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and Globals.current_mode != Globals.Mode.PLACING:
 		match event.button_index:
 			MOUSE_BUTTON_WHEEL_DOWN:
-		
 				target_pos += %camera.global_basis.z * 2
-
 			MOUSE_BUTTON_WHEEL_UP:
-
 				target_pos -= %camera.global_basis.z * 2
 #desperation
 func vpclamp(v: Vector3,v_min: Vector3,v_max: Vector3, offset: float = 0) -> Vector3:
