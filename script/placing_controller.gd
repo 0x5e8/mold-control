@@ -5,7 +5,7 @@ extends Node
 var placing_building: Building = null
 var placable: bool
 
-var lab: Resource = preload("res://building/lab/lab.tscn")
+var lab: Resource = preload("res://class/Building.tscn")
 
 func _input(event: InputEvent) -> void:
 	if Globals.current_mode != Globals.Mode.PLACING:

@@ -25,18 +25,14 @@ var preview_mode: bool = false
 
 func disable_preview_mode():
 	if not geometry: return
-	if not geometry.material_override: return
+	assert(geometry, "an geometry instance must be given")
 	
 	geometry.material_override.transparency = BaseMaterial3D.Transparency.TRANSPARENCY_DISABLED
 	geometry.material_override.albedo_color = Color(1, 1, 1)
-	
 	preview_mode = false
 
 func enable_preview_mode():
 	assert(geometry, "an geometry instance must be given")
-	if not geometry.material_override:
-		geometry.material_override = StandardMaterial3D.new()
-	assert(geometry.material_override is StandardMaterial3D, "material is not a StandardMaterial3D")
 	
 	geometry.material_override.transparency = BaseMaterial3D.Transparency.TRANSPARENCY_ALPHA
 	geometry.material_override.albedo_color.a = 0.1
@@ -45,17 +41,13 @@ func enable_preview_mode():
 
 func preview_mode_placable():
 	if not preview_mode: return
-	
-	geometry.material_override.albedo_color.r = 0
-	geometry.material_override.albedo_color.g = 1
-	geometry.material_override.albedo_color.b = 0
+	assert(geometry, "an geometry instance must be given")
+	geometry.material_override.albedo_color = Color(0, 1, 0)
 	
 func preview_mode_not_placable():
 	if not preview_mode: return
-	
-	geometry.material_override.albedo_color.r = 1
-	geometry.material_override.albedo_color.g = 0
-	geometry.material_override.albedo_color.b = 0
+	assert(geometry, "an geometry instance must be given")
+	geometry.material_override.albedo_color = Color(1, 0, 0)
 
 func _ready() -> void:
 	self.scale = Vector3(1, 1, 1)
@@ -68,7 +60,7 @@ func update_collision_shape():
 	if not $collision_shape.shape or not $collision_shape.shape is BoxShape3D:
 		$collision_shape.shape = BoxShape3D.new()
 	
-	$collision_shape.shape.size = dimension
+	$collision_shape.shape.size = dimension * 0.99 # shrink it a bit to avoid stupid collision check
 	$collision_shape.position = dimension / 2.0
 	$collision_shape.position.y -= 0.5
 

@@ -1,13 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://pkjgwfcx7x34"]
 
 [ext_resource type="Script" path="res://class/Building.gd" id="1_cij5h"]
-[ext_resource type="Texture2D" uid="uid://ctjdmkx1n5tlm" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="2_ppk7l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0vm16"]
+size = Vector3(0.99, 0.99, 0.99)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rod1"]
-transparency = 1
-albedo_texture = ExtResource("2_ppk7l")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ehdl"]
+load_path = "res://.godot/imported/texture_01.png-94ebd82494c839e91a05b9e1cc2750ca.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7j8b"]
+resource_local_to_scene = true
+albedo_texture = SubResource("CompressedTexture2D_1ehdl")
 uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a58sf"]
@@ -22,5 +25,5 @@ shape = SubResource("BoxShape3D_0vm16")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
-material_override = SubResource("StandardMaterial3D_2rod1")
+material_override = SubResource("StandardMaterial3D_o7j8b")
 mesh = SubResource("BoxMesh_a58sf")

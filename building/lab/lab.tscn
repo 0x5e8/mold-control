@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://class/Building.gd" id="1_hyoe4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8ys3"]
-size = Vector3(4, 3, 3)
+size = Vector3(3.96, 2.97, 2.97)
 
 [node name="lab" type="Area3D" node_paths=PackedStringArray("geometry")]
 script = ExtResource("1_hyoe4")
