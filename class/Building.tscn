@@ -12,7 +12,7 @@ uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a58sf"]
 
-[node name="Building" type="StaticBody3D" node_paths=PackedStringArray("geometry")]
+[node name="Building" type="Area3D" node_paths=PackedStringArray("geometry")]
 script = ExtResource("1_cij5h")
 geometry = NodePath("MeshInstance3D")
 

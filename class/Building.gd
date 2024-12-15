@@ -1,6 +1,6 @@
 @tool
 class_name Building
-extends StaticBody3D
+extends Area3D
 
 enum BuildingType {
 	DECOR,
@@ -21,20 +21,41 @@ var editor_errors = {
 	MISSING_COLLISION_SHAPE: false
 }
 
-func disable_opacity():
+var preview_mode: bool = false
+
+func disable_preview_mode():
 	if not geometry: return
 	if not geometry.material_override: return
 	
 	geometry.material_override.transparency = BaseMaterial3D.Transparency.TRANSPARENCY_DISABLED
+	geometry.material_override.albedo_color = Color(1, 1, 1)
+	
+	preview_mode = false
 
-func set_opacity(alpha):
+func enable_preview_mode():
 	assert(geometry, "an geometry instance must be given")
 	if not geometry.material_override:
 		geometry.material_override = StandardMaterial3D.new()
 	assert(geometry.material_override is StandardMaterial3D, "material is not a StandardMaterial3D")
 	
 	geometry.material_override.transparency = BaseMaterial3D.Transparency.TRANSPARENCY_ALPHA
-	geometry.material_override.albedo_color.a = alpha
+	geometry.material_override.albedo_color.a = 0.1
+	
+	preview_mode = true
+
+func preview_mode_placable():
+	if not preview_mode: return
+	
+	geometry.material_override.albedo_color.r = 0
+	geometry.material_override.albedo_color.g = 1
+	geometry.material_override.albedo_color.b = 0
+	
+func preview_mode_not_placable():
+	if not preview_mode: return
+	
+	geometry.material_override.albedo_color.r = 1
+	geometry.material_override.albedo_color.g = 0
+	geometry.material_override.albedo_color.b = 0
 
 func _ready() -> void:
 	self.scale = Vector3(1, 1, 1)
