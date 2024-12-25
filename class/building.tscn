@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://pkjgwfcx7x34"]
+[gd_scene load_steps=6 format=3 uid="uid://dgpomiyh8m3pu"]
 
-[ext_resource type="Script" path="res://class/Building.gd" id="1_cij5h"]
+[ext_resource type="Script" path="res://class/building.gd" id="1_cij5h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0vm16"]
 size = Vector3(0.99, 0.99, 0.99)
@@ -19,7 +19,7 @@ uv1_scale = Vector3(3, 2, 1)
 script = ExtResource("1_cij5h")
 geometry = NodePath("MeshInstance3D")
 
-[node name="collision_shape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 shape = SubResource("BoxShape3D_0vm16")
 

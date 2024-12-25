@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bl6kx2v8meotl"]
 
-[ext_resource type="PackedScene" uid="uid://pkjgwfcx7x34" path="res://class/Building.tscn" id="2_7bi7w"]
+[ext_resource type="PackedScene" uid="uid://dgpomiyh8m3pu" path="res://class/building.tscn" id="2_7bi7w"]
 [ext_resource type="PackedScene" uid="uid://cqiad0it050ig" path="res://building/lab/lab.tscn" id="2_402yj"]
 [ext_resource type="Script" path="res://script/mouse_controller.gd" id="2_bju7i"]
 [ext_resource type="Script" path="res://script/game_controller.gd" id="3_ex5qy"]
@@ -20,39 +20,39 @@ sky = SubResource("Sky_vey25")
 
 [node name="game" type="Node3D"]
 
-[node name="mouse-controller" type="Node" parent="."]
+[node name="MouseController" type="Node" parent="."]
 script = ExtResource("2_bju7i")
 
-[node name="game-controller" type="Node" parent="."]
+[node name="GameController" type="Node" parent="."]
 script = ExtResource("3_ex5qy")
 
-[node name="placing-controller" type="Node" parent="." node_paths=PackedStringArray("building_container")]
+[node name="PlacingController" type="Node" parent="." node_paths=PackedStringArray("building_container")]
 script = ExtResource("3_vx3tn")
-building_container = NodePath("../buildings")
+building_container = NodePath("../Buildings")
 
-[node name="buildings" type="Node" parent="."]
+[node name="Buildings" type="Node" parent="."]
 
-[node name="lab" parent="buildings" instance=ExtResource("2_402yj")]
+[node name="Lab" parent="Buildings" instance=ExtResource("2_402yj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
 
-[node name="Building" parent="buildings" instance=ExtResource("2_7bi7w")]
+[node name="Building" parent="Buildings" instance=ExtResource("2_7bi7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
 
-[node name="camera" parent="." instance=ExtResource("5_5dh7y")]
+[node name="Camera" parent="." instance=ExtResource("5_5dh7y")]
 unique_name_in_owner = true
 transform = Transform3D(0.707107, 0.206738, -0.67621, 0, 0.956305, 0.292372, 0.707107, -0.206738, 0.67621, -9.645, 8.575, 8.482)
 
-[node name="environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0836c")
 
-[node name="sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.672354, 0.74023, 0, -0.74023, 0.672354, 0, 8.77538, 0)
 
-[node name="platform" parent="." instance=ExtResource("6_1w6rt")]
+[node name="Platform" parent="." instance=ExtResource("6_1w6rt")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="gridline" parent="." instance=ExtResource("7_0tg6w")]
+[node name="Gridline" parent="." instance=ExtResource("7_0tg6w")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
@@ -63,14 +63,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="mode-button" type="Button" parent="Control"]
+[node name="ModeButton" type="Button" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "normal"
 
-[node name="properties-panel" type="Panel" parent="Control"]
+[node name="PropPanel" type="Panel" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 812.0
@@ -78,7 +78,7 @@ offset_top = 42.0
 offset_right = 1112.0
 offset_bottom = 542.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/properties-panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PropPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,14 +86,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="prop-name" type="Label" parent="Control/properties-panel/VBoxContainer"]
+[node name="PropName" type="Label" parent="Control/PropPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "name"
 
-[node name="prop-info" type="Label" parent="Control/properties-panel/VBoxContainer"]
+[node name="PropInfo" type="Label" parent="Control/PropPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "info1"
 
-[connection signal="pressed" from="Control/mode-button" to="game-controller" method="_on_modebutton_pressed"]
+[connection signal="pressed" from="Control/ModeButton" to="GameController" method="_on_modebutton_pressed"]
