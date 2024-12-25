@@ -14,5 +14,5 @@ shader_parameter/color = Color(0, 0.3, 0, 0.5)
 material = SubResource("ShaderMaterial_gs8w0")
 size = Vector2(100, 100)
 
-[node name="gridline" type="MeshInstance3D"]
+[node name="Gridline" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_o22q2")

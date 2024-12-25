@@ -1,11 +1,13 @@
 extends Node
 
+
 @export var building_container: Node
 
 var placing_building: Building = null
 var placable: bool
 
 var lab: Resource = preload("res://building/lab/lab.tscn")
+
 
 func _input(event: InputEvent) -> void:
 	if Globals.current_mode != Globals.Mode.PLACING:
@@ -20,7 +22,7 @@ func _input(event: InputEvent) -> void:
 			placing_building.enable_preview_mode()
 			building_container.add_child(placing_building)
 		
-		var raycast: Dictionary = %camera.mouse_cast()
+		var raycast: Dictionary = %Camera.mouse_cast()
 		if not raycast.is_empty():
 			raycast.position.y = 0 # only place in plane
 			placing_building.global_position = raycast.position

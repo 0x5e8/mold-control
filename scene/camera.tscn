@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scene/camera.gd" id="1_vf45b"]
 
-[node name="camera" type="Camera3D"]
+[node name="Camera" type="Camera3D"]
 script = ExtResource("1_vf45b")
 
-[node name="ray" type="RayCast3D" parent="."]
+[node name="Ray" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -100)
 debug_shape_thickness = 1
